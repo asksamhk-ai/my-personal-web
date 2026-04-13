@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, (user-scalable=no, initial-scale=1.0, maximum-scale=1.0)">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asksam | Financial Planning Expert</title>
     <style>
         /* Reset and Base Styles */
@@ -17,6 +17,7 @@
             background-color: #f8f9fa;
             color: #333;
             line-height: 1.6;
+            direction: ltr;
         }
         
         /* Typography */
@@ -50,6 +51,22 @@
             padding: 0 20px;
         }
         
+        /* Language Selector */
+        .language-selector {
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .language-selector select {
+            padding: 8px 12px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            background-color: white;
+            cursor: pointer;
+        }
+        
         /* Header */
         header {
             background-color: white;
@@ -72,6 +89,14 @@
             font-weight: 700;
             color: #2c5282;
             text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo::after {
+            content: "🌐";
+            margin-left: 8px;
+            font-size: 1rem;
         }
         
         .nav-links {
@@ -324,6 +349,14 @@
     </style>
 </head>
 <body>
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <select id="language">
+            <option value="en">English</option>
+            <option value="zh-Hant">Traditional Chinese</option>
+        </select>
+    </div>
+
     <!-- Header -->
     <header>
         <div class="container header-content">
@@ -341,9 +374,9 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
-            <h1>Sam Hui</h1>
-            <p>CFP® Certified Financial Planner | Personal Finance Expert</p>
-            <a href="#contact" class="btn">Schedule a Consultation</a>
+            <h1 id="hero-title">Sam Hui</h1>
+            <p id="hero-subtitle">CFP® Certified Financial Planner | Personal Finance Expert</p>
+            <a href="#contact" class="btn" id="hero-btn">Schedule a Consultation</a>
         </div>
     </section>
 
@@ -351,39 +384,39 @@
     <section class="services" id="services">
         <div class="container">
             <div class="section-title">
-                <h2>Financial Services</h2>
-                <p>Comprehensive financial planning solutions tailored to your unique needs</p>
+                <h2 id="services-title">Financial Services</h2>
+                <p id="services-subtitle">Comprehensive financial planning solutions tailored to your unique needs</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">📊</div>
-                    <h3>Retirement Planning</h3>
-                    <p>Strategic planning for a secure retirement tailored to your financial goals and timeline.</p>
+                    <h3 id="retirement-title">Retirement Planning</h3>
+                    <p id="retirement-desc">Strategic planning for a secure retirement tailored to your financial goals and timeline.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">💼</div>
-                    <h3>Investment Planning</h3>
-                    <p>Personalized investment strategies to help you achieve your financial objectives.</p>
+                    <h3 id="investment-title">Investment Planning</h3>
+                    <p id="investment-desc">Personalized investment strategies to help you achieve your financial objectives.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">🏠</div>
-                    <h3>Estate Planning</h3>
-                    <p>Comprehensive solutions for wealth preservation and transfer across generations.</p>
+                    <h3 id="estate-title">Estate Planning</h3>
+                    <p id="estate-desc">Comprehensive solutions for wealth preservation and transfer across generations.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">👨‍👩‍👧‍👦</div>
-                    <h3>Family Financial Planning</h3>
-                    <p>Strategies to secure financial stability for your family and dependents.</p>
+                    <h3 id="family-title">Family Financial Planning</h3>
+                    <p id="family-desc">Strategies to secure financial stability for your family and dependents.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">📈</div>
-                    <h3>Tax Planning</h3>
-                    <p>Strategic tax optimization to maximize your wealth and minimize liabilities.</p>
+                    <h3 id="tax-title">Tax Planning</h3>
+                    <p id="tax-desc">Strategic tax optimization to maximize your wealth and minimize liabilities.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">📝</div>
-                    <h3>Legacy Planning</h3>
-                    <p>Creating a lasting impact through thoughtful wealth transfer and philanthropic planning.</p>
+                    <h3 id="legacy-title">Legacy Planning</h3>
+                    <p id="legacy-desc">Creating a lasting impact through thoughtful wealth transfer and philanthropic planning.</p>
                 </div>
             </div>
         </div>
@@ -393,21 +426,21 @@
     <section class="about" id="about">
         <div class="container">
             <div class="section-title">
-                <h2>About Me</h2>
-                <p>Learn more about my journey and qualifications</p>
+                <h2 id="about-title">About Me</h2>
+                <p id="about-subtitle">Learn more about my journey and qualifications</p>
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <h3>CFP® Certified Financial Planner</h3>
-                    <p>I am a dedicated financial planner with over 10 years of experience helping clients achieve their financial goals. My approach combines strategic planning with personalized service to create financial solutions that work for your unique circumstances.</p>
-                    <p>As a CFP® professional, I adhere to the highest ethical standards and provide comprehensive financial planning that addresses all aspects of your financial life.</p>
-                    <p>Originally from Hong Kong, I bring a unique perspective to financial planning, blending local market knowledge with international best practices.</p>
-                    <p>When I'm not helping clients, I enjoy sharing financial knowledge through speaking engagements and articles on financial literacy.</p>
+                    <h3 id="about-qualifications">CFP® Certified Financial Planner</h3>
+                    <p id="about-desc">I am a dedicated financial planner with over 10 years of experience helping clients achieve their financial goals. My approach combines strategic planning with personalized service to create financial solutions that work for your unique circumstances.</p>
+                    <p id="about-ethics">As a CFP® professional, I adhere to the highest ethical standards and provide comprehensive financial planning that addresses all aspects of your financial life.</p>
+                    <p id="about-background">Originally from Hong Kong, I bring a unique perspective to financial planning, blending local market knowledge with international best practices.</p>
+                    <p id="about-passion">When I'm not helping clients, I enjoy sharing financial knowledge through speaking engagements and articles on financial literacy.</p>
                 </div>
                 <div class="about-image">
                     <!-- Placeholder for profile image -->
                     <div style="background-color: #e2e8f0; height: 300px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #94a3b8;">
-                        <span>Profile Image</span>
+                        <span id="about-placeholder">Profile Image</span>
                     </div>
                 </div>
             </div>
@@ -418,75 +451,16 @@
     <section class="testimonials" id="testimonials">
         <div class="container">
             <div class="section-title">
-                <h2>Client Testimonials</h2>
-                <p>What clients say about working with me</p>
+                <h2 id="testimonials-title">Client Testimonials</h2>
+                <p id="testimonials-subtitle">What clients say about working with me</p>
             </div>
             <div class="testimonial-grid">
                 <div class="testimonial-card">
-                    <p class="testimonial-text">"Sam transformed my approach to personal finance. His retirement planning strategy has given me confidence for the future."</p>
+                    <p class="testimonial-text" id="testimonial1">"Asksam's financial planning helped me achieve my retirement goals years ahead of schedule. Highly recommended!"</p>
                     <div class="testimonial-author">
-                        <!-- Placeholder for client image -->
-                        <div style="background-color: #cbd5e0; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #94a3b8;">👤</div>
-                        <div>
-                            <h4>John L.</h4>
-                            <p>Retired Executive</p>
-                        </div>
+                        <span id="testimonial1-author">John L.</span>
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <p class="testimonial-text">"As a young professional, I was overwhelmed by financial decisions. Sam's guidance helped me build a solid foundation for my financial future."</p>
-                    <div class="testimonial-author">
-                        <!-- Placeholder for client image -->
-                        <div style="background-color: #cbd5e0; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #94a3b8;">👤</div>
-                        <div>
-                            <h4>Sarah M.</h4>
-                            <p>Financial Professional</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Sam's investment strategy has outperformed my expectations. His disciplined approach and market insights have been invaluable."</p>
-                    <div class="testimonial-author">
-                        <!-- Placeholder for client image -->
-                        <div style="background-color: #cbd5e0; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #94a3b8;">👤</div>
-                        <div>
-                            <h4>Michael K.</h4>
-                            <p>Business Owner</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Get in Touch</h2>
-                <p>Have questions or ready to start planning? Reach out to me</p>
-            </div>
-            <div class="contact-form">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" placeholder="Your Name">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="Your Email">
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" placeholder="How can I help you?"></textarea>
-                </div>
-                <button type="submit" class="btn">Send Message</button>
-            </div>
-        </div>
-    <footer</footer>
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                
-                
+                    <p class="testimonial-text" id="testimonial2">"Professional, knowledgeable, and truly cares about my financial wellbeing. Will definitely use his services again."</p>
+                    <div class="testimonial
